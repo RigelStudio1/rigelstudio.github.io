@@ -139,20 +139,15 @@ nav.scrolled{
   display:flex;align-items:center;justify-content:space-between;
 }
 .nav-logo{
-  display:flex;align-items:center;gap:12px;
+  display:flex;align-items:center;gap:0;
   font-family:var(--font-head);font-size:20px;font-weight:800;
   color:var(--white);
 }
 .nav-logo-icon{
   width:40px;height:40px;
-  background:var(--blue);border-radius:10px;
+  border-radius:0;background:transparent;
   display:flex;align-items:center;justify-content:center;
-  font-weight:900;font-size:18px;color:#060618;
-  position:relative;overflow:hidden;
-}
-.nav-logo-icon::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,0.3),transparent);
+  overflow:visible;
 }
 .nav-links{
   display:flex;align-items:center;gap:36px;
@@ -246,8 +241,9 @@ nav.scrolled{
 }
 .hero-h1 .line2{color:var(--blue)}
 .hero-h1 .line3{
-  -webkit-text-stroke:1.5px var(--blue);
-  color:transparent;
+  color:var(--white);
+  -webkit-text-stroke:0;
+  text-stroke:0;
 }
 .hero-desc{
   font-size:17px;color:var(--gray);max-width:540px;
@@ -272,7 +268,7 @@ nav.scrolled{
 .hero-visual{
   position:absolute;right:0;top:50%;transform:translateY(-50%);
   width:45%;max-width:580px;
-  opacity:0.15;pointer-events:none;
+  opacity:0.55;pointer-events:none;
   display:flex;align-items:center;justify-content:center;
 }
 .hero-orbit{
@@ -294,7 +290,6 @@ nav.scrolled{
 @keyframes orbit-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .orbit-center{
   position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-head);font-size:120px;font-weight:900;color:rgba(115,202,255,0.2);
 }
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(30px)}
@@ -875,8 +870,10 @@ footer{
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo">
-      <div class="nav-logo-icon">R</div>
-      Rigel Studio
+      <div class="nav-logo-icon">
+        <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778850724/Rigel_Logo_Icon_putady.png" alt="Rigel Studio Icon" style="width:36px;height:36px;object-fit:contain;">
+      </div>
+      <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778851026/Rigel_Logo_white.2_duloum.png" alt="Rigel Studio" style="height:38px;width:auto;object-fit:contain;margin-left:6px;">
     </a>
     <div class="nav-links" id="nav-links">
       <a href="#services">Services</a>
@@ -935,7 +932,7 @@ footer{
       <div class="orbit-ring"><div class="orbit-dot"></div></div>
       <div class="orbit-ring"><div class="orbit-dot"></div></div>
       <div class="orbit-ring"><div class="orbit-dot"></div></div>
-      <div class="orbit-center">R</div>
+      <div class="orbit-center"><img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778850724/Rigel_Logo_Icon_putady.png" alt="Rigel Studio" style="width:160px;height:160px;object-fit:contain;opacity:0.25;filter:drop-shadow(0 0 20px rgba(115,202,255,0.4));"></div>
     </div>
   </div>
 </section>
@@ -1071,78 +1068,86 @@ footer{
       </div>
     </div>
     <div class="portfolio-grid" id="portfolio-grid">
-      <div class="portfolio-item featured" data-cat="video">
-        <div class="portfolio-thumb">
-          <div class="portfolio-thumb-bg" style="background:linear-gradient(135deg,rgba(115,202,255,0.12),rgba(20,20,60,0.8))"></div>
-          <div class="portfolio-thumb-icon">🎬</div>
-          <div class="portfolio-thumb-title">Brand Campaign — NovaTech Launch Video</div>
-        </div>
-        <div class="portfolio-overlay">
+
+      <!-- VIDEO 1 — Cloudinary video (featured) -->
+      <div class="portfolio-item featured" data-cat="video" style="aspect-ratio:16/9;overflow:hidden;position:relative;">
+        <iframe src="https://player.cloudinary.com/embed/?cloud_name=de6lsypqj&public_id=Jrplooet_Final_1_8_2025_oyk3mo" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;border-radius:16px;"></iframe>
+        <div class="portfolio-overlay" style="pointer-events:none;opacity:0;">
           <div class="portfolio-overlay-cat">Video Editing</div>
-          <div class="portfolio-overlay-title">NovaTech Brand Launch Campaign</div>
-          <div class="portfolio-overlay-btn">View Project</div>
+          <div class="portfolio-overlay-title">Brand Campaign Video</div>
         </div>
       </div>
-      <div class="portfolio-item" data-cat="motion">
-        <div class="portfolio-thumb">
-          <div class="portfolio-thumb-bg" style="background:linear-gradient(135deg,rgba(90,115,255,0.15),rgba(20,20,60,0.8))"></div>
-          <div class="portfolio-thumb-icon">✨</div>
-          <div class="portfolio-thumb-title">Explainer Animation</div>
-        </div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-overlay-cat">Motion Graphics</div>
-          <div class="portfolio-overlay-title">SaaS Product Explainer Video</div>
-          <div class="portfolio-overlay-btn">View Project</div>
-        </div>
+
+      <!-- VIDEO 2 — Cloudinary video -->
+      <div class="portfolio-item" data-cat="video" style="aspect-ratio:4/3;overflow:hidden;position:relative;">
+        <iframe src="https://player.cloudinary.com/embed/?cloud_name=de6lsypqj&public_id=Fire_Effect_Practice_25_4_2024_rr_pcambf" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;border-radius:16px;"></iframe>
       </div>
+
+      <!-- VIDEO 3 — Cloudinary video -->
+      <div class="portfolio-item" data-cat="motion" style="aspect-ratio:4/3;overflow:hidden;position:relative;">
+        <iframe src="https://player.cloudinary.com/embed/?cloud_name=de6lsypqj&public_id=VTAv4NdTHWi_576_jkmxpq" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;border-radius:16px;"></iframe>
+      </div>
+
+      <!-- IMAGE 1 — Learn Quran -->
       <div class="portfolio-item" data-cat="design">
         <div class="portfolio-thumb">
-          <div class="portfolio-thumb-bg" style="background:linear-gradient(135deg,rgba(255,115,200,0.12),rgba(20,20,60,0.8))"></div>
-          <div class="portfolio-thumb-icon">🎨</div>
-          <div class="portfolio-thumb-title">Brand Identity</div>
+          <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778847532/Learn_quran_dwtqbf.jpg" alt="Learn Quran Design" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px;">
         </div>
         <div class="portfolio-overlay">
           <div class="portfolio-overlay-cat">Graphic Design</div>
-          <div class="portfolio-overlay-title">ArcBrand Complete Identity</div>
+          <div class="portfolio-overlay-title">Learn Quran — Social Content</div>
           <div class="portfolio-overlay-btn">View Project</div>
         </div>
       </div>
+
+      <!-- IMAGE 2 — Grid Camera -->
+      <div class="portfolio-item" data-cat="design">
+        <div class="portfolio-thumb">
+          <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778847529/Grid_Camera_fui8ko.jpg" alt="Grid Camera" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px;">
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-overlay-cat">Graphic Design</div>
+          <div class="portfolio-overlay-title">Grid Camera — Branding</div>
+          <div class="portfolio-overlay-btn">View Project</div>
+        </div>
+      </div>
+
+      <!-- IMAGE 3 — Damascus Knife Posts -->
       <div class="portfolio-item" data-cat="social">
         <div class="portfolio-thumb">
-          <div class="portfolio-thumb-bg" style="background:linear-gradient(135deg,rgba(115,255,180,0.10),rgba(20,20,60,0.8))"></div>
-          <div class="portfolio-thumb-icon">📱</div>
-          <div class="portfolio-thumb-title">Social Media Pack</div>
+          <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778847519/Damascus_Knife_Posts_jg0uot.jpg" alt="Damascus Knife Social Posts" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px;">
         </div>
         <div class="portfolio-overlay">
           <div class="portfolio-overlay-cat">Social Media</div>
-          <div class="portfolio-overlay-title">VisionX 30-Day Content Pack</div>
+          <div class="portfolio-overlay-title">Damascus Knife — Social Posts</div>
           <div class="portfolio-overlay-btn">View Project</div>
         </div>
       </div>
-      <div class="portfolio-item" data-cat="video">
+
+      <!-- IMAGE 4 — Damascus Knife Banners -->
+      <div class="portfolio-item" data-cat="design">
         <div class="portfolio-thumb">
-          <div class="portfolio-thumb-bg" style="background:linear-gradient(135deg,rgba(255,200,80,0.10),rgba(20,20,60,0.8))"></div>
-          <div class="portfolio-thumb-icon">🎥</div>
-          <div class="portfolio-thumb-title">YouTube Series</div>
+          <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778847507/Damascus_Knife_Banners_rrvfws.jpg" alt="Damascus Knife Banners" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px;">
         </div>
         <div class="portfolio-overlay">
-          <div class="portfolio-overlay-cat">Video Editing</div>
-          <div class="portfolio-overlay-title">PulseMedia YouTube Series</div>
+          <div class="portfolio-overlay-cat">Graphic Design</div>
+          <div class="portfolio-overlay-title">Damascus Knife — Banner Ads</div>
           <div class="portfolio-overlay-btn">View Project</div>
         </div>
       </div>
-      <div class="portfolio-item" data-cat="motion">
+
+      <!-- IMAGE 5 — Gym -->
+      <div class="portfolio-item" data-cat="social">
         <div class="portfolio-thumb">
-          <div class="portfolio-thumb-bg" style="background:linear-gradient(135deg,rgba(115,202,255,0.15),rgba(20,20,60,0.8))"></div>
-          <div class="portfolio-thumb-icon">🔷</div>
-          <div class="portfolio-thumb-title">Logo Animation</div>
+          <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778847522/gym_small_size_pupiny.jpg" alt="Gym Social Content" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px;">
         </div>
         <div class="portfolio-overlay">
-          <div class="portfolio-overlay-cat">Motion Graphics</div>
-          <div class="portfolio-overlay-title">Apex Labs Logo Reveal</div>
+          <div class="portfolio-overlay-cat">Social Media</div>
+          <div class="portfolio-overlay-title">Gym Brand — Social Content</div>
           <div class="portfolio-overlay-btn">View Project</div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -1307,7 +1312,7 @@ footer{
       <div class="reveal-left">
         <div class="about-img-wrap">
           <div class="about-img-card">
-            <div class="about-logo-display">R✦</div>
+            <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778850724/Rigel_Logo_Icon_putady.png" alt="Rigel Studio Logo" class="about-logo-display" style="width:200px;height:auto;object-fit:contain;opacity:0.7;filter:drop-shadow(0 0 30px rgba(115,202,255,0.3));position:relative;z-index:1;">
             <div class="about-logo-text">RIGEL STUDIO</div>
           </div>
           <div class="about-badge">
@@ -1419,30 +1424,30 @@ footer{
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">First Name</label>
-              <input class="form-input" type="text" placeholder="e.g. Ahmed">
+              <input id="f-fname" class="form-input" type="text" placeholder="e.g. Ahmed">
             </div>
             <div class="form-group">
               <label class="form-label">Last Name</label>
-              <input class="form-input" type="text" placeholder="e.g. Khan">
+              <input id="f-lname" class="form-input" type="text" placeholder="e.g. Khan">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">Company / Organization</label>
-              <input class="form-input" type="text" placeholder="Your company name">
+              <input id="f-company" class="form-input" type="text" placeholder="Your company name">
             </div>
             <div class="form-group">
               <label class="form-label">Company Email</label>
-              <input class="form-input" type="email" placeholder="you@company.com">
+              <input id="f-email" class="form-input" type="email" placeholder="you@company.com">
             </div>
           </div>
           <div class="form-group">
             <label class="form-label">Phone Number</label>
-            <input class="form-input" type="tel" placeholder="+92 3XX XXX XXXX">
+            <input id="f-phone" class="form-input" type="tel" placeholder="+92 3XX XXX XXXX">
           </div>
           <div class="form-group">
             <label class="form-label">How Can We Help You?</label>
-            <select class="form-select">
+            <select id="f-service" class="form-select">
               <option value="" disabled selected>Select a Service</option>
               <option>Social Media Management</option>
               <option>Paid Marketing (Meta Ads)</option>
@@ -1457,9 +1462,9 @@ footer{
           </div>
           <div class="form-group">
             <label class="form-label">Message</label>
-            <textarea class="form-textarea" placeholder="Tell us about your project, goals, or any questions you have..."></textarea>
+            <textarea id="f-message" class="form-textarea" placeholder="Tell us about your project, goals, or any questions you have..."></textarea>
           </div>
-          <button class="form-submit" onclick="submitForm()">Send Message — It's Free ✦</button>
+          <button class="form-submit" type="button" onclick="submitForm(event)">Send Message — It's Free ✦</button>
         </div>
       </div>
     </div>
@@ -1472,7 +1477,7 @@ footer{
     <div class="footer-inner">
       <div>
         <div class="footer-brand-name">
-          <div style="width:32px;height:32px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;color:#060618">R</div>
+          <div style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;"><img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778850724/Rigel_Logo_Icon_putady.png" alt="Rigel Studio Icon" style="width:32px;height:32px;object-fit:contain;"></div>
           Rigel <span>Studio</span>
         </div>
         <p class="footer-brand-desc">A creative marketing agency helping brands grow through high-quality design, video, and digital marketing.</p>
@@ -1603,15 +1608,47 @@ function filterPortfolio(btn,cat){
   });
 }
 
-/* ─── FORM SUBMIT ─── */
-function submitForm(){
-  showNotif('✦ Message sent! We\'ll reply within 24 hours.');
-}
+/* ─── FORM SUBMIT — FORMSPREE ─── */
 function showNotif(msg){
   const n=document.getElementById('notif');
   document.getElementById('notif-text').textContent=msg;
   n.classList.add('show');
-  setTimeout(()=>n.classList.remove('show'),4000);
+  setTimeout(()=>n.classList.remove('show'),5000);
+}
+async function submitForm(e){
+  e.preventDefault();
+  const btn=document.querySelector('.form-submit');
+  const fname=document.getElementById('f-fname')?.value||'';
+  const lname=document.getElementById('f-lname')?.value||'';
+  const company=document.getElementById('f-company')?.value||'';
+  const email=document.getElementById('f-email')?.value||'';
+  const phone=document.getElementById('f-phone')?.value||'';
+  const service=document.getElementById('f-service')?.value||'';
+  const message=document.getElementById('f-message')?.value||'';
+  if(!email){showNotif('⚠️ Please enter your email address.');return;}
+  btn.textContent='Sending…';btn.disabled=true;
+  try{
+    const res=await fetch('https://formspree.io/f/mwvyddgw',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        name:fname+' '+lname,
+        company,email,phone,service,message
+      })
+    });
+    if(res.ok){
+      showNotif('✦ Message sent! We\'ll reply within 24 hours.');
+      document.querySelectorAll('.form-input,.form-textarea,.form-select').forEach(el=>el.value='');
+      btn.textContent='Sent ✓';
+      setTimeout(()=>{btn.textContent='Send Message — It\'s Free ✦';btn.disabled=false;},3000);
+    } else {
+      showNotif('⚠️ Something went wrong. Please email us directly.');
+      btn.textContent='Send Message — It\'s Free ✦';btn.disabled=false;
+    }
+  } catch(err){
+    showNotif('⚠️ Network error. Please try again or WhatsApp us.');
+    btn.textContent='Send Message — It\'s Free ✦';btn.disabled=false;
+  }
 }
 
 /* ─── COUNTER ANIMATION ─── */
