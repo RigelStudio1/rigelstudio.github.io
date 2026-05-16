@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rigel Studio — Creative Marketing Agency</title>
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/de6lsypqj/image/upload/v1778850724/Rigel_Logo_Icon_putady.png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════
@@ -170,7 +171,7 @@ nav.scrolled{
   padding:10px 22px;border-radius:50px;
   transition:all 0.2s;
 }
-.nav-cta:hover{background:#a8dbff;transform:translateY(-1px)}
+.nav-cta:hover{background:#a8dbff;transform:translateY(-1px);color:#060618;}
 .hamburger{
   display:none;flex-direction:column;gap:5px;cursor:pointer;
 }
@@ -242,8 +243,9 @@ nav.scrolled{
 .hero-h1 .line2{color:var(--blue)}
 .hero-h1 .line3{
   color:var(--white);
-  -webkit-text-stroke:0;
-  text-stroke:0;
+  -webkit-text-stroke:0px transparent;
+  text-shadow:none;
+  font-weight:900;
 }
 .hero-desc{
   font-size:17px;color:var(--gray);max-width:540px;
@@ -420,14 +422,15 @@ nav.scrolled{
 .portfolio-item{
   border-radius:16px;overflow:hidden;
   position:relative;cursor:pointer;
-  aspect-ratio:4/3;
+  aspect-ratio:16/9;
   background:var(--bg3);
   border:1px solid var(--border);
   transition:transform 0.3s;
 }
 .portfolio-item:hover{transform:scale(1.02)}
-.portfolio-item.featured{grid-column:span 2;aspect-ratio:16/9}
-@media(max-width:580px){.portfolio-item.featured{grid-column:span 1}}
+.portfolio-item.featured{grid-column:span 3;aspect-ratio:21/9;}
+@media(max-width:900px){.portfolio-item.featured{grid-column:span 2;aspect-ratio:16/9;}}
+@media(max-width:580px){.portfolio-item.featured{grid-column:span 1;aspect-ratio:16/9;}}
 .portfolio-thumb{
   width:100%;height:100%;
   display:flex;flex-direction:column;
@@ -654,7 +657,7 @@ nav.scrolled{
   font-family:var(--font-head);text-align:center;
 }
 .about-badge-num{font-size:24px;font-weight:900;line-height:1}
-.about-badge-text{font-size:9px;font-weight:700;letter-spacing:0.05em;margin-top:2px}
+.about-badge-text{font-size:9px;font-weight:900;letter-spacing:0.05em;margin-top:2px;text-transform:uppercase;}
 .about-text-p{font-size:15px;color:var(--gray);line-height:1.8;margin-bottom:16px}
 .about-values{
   display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;
@@ -870,17 +873,15 @@ footer{
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo">
-      <div class="nav-logo-icon">
-        <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778850724/Rigel_Logo_Icon_putady.png" alt="Rigel Studio Icon" style="width:36px;height:36px;object-fit:contain;">
-      </div>
-      <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778851026/Rigel_Logo_white.2_duloum.png" alt="Rigel Studio" style="height:38px;width:auto;object-fit:contain;margin-left:6px;">
+      <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778851026/Rigel_Logo_white.2_duloum.png" alt="Rigel Studio" style="height:44px;width:auto;object-fit:contain;display:block;">
     </a>
     <div class="nav-links" id="nav-links">
       <a href="#services">Services</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#process">Process</a>
       <a href="#about">About</a>
-      <a href="#contact" class="nav-cta">Get a Quote</a>
+      <a href="blog.html" target="_self">Blog</a>
+      <a href="#contact" class="nav-cta" style="color:#060618!important;">Get a Quote</a>
     </div>
     <div class="hamburger" id="hamburger" onclick="toggleNav()">
       <span></span><span></span><span></span>
@@ -976,7 +977,7 @@ footer{
     <div class="services-grid">
       <div class="service-card reveal" style="transition-delay:0.0s">
         <div class="service-num">01</div>
-        <div class="service-icon">🎬</div>
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><polygon points="10,8 16,12 10,16"/></svg></div>
         <div class="service-name">Video Editing</div>
         <p class="service-desc">Professional video editing that keeps your audience glued to the screen — from short-form reels to full-length productions.</p>
         <div class="service-tags">
@@ -989,7 +990,7 @@ footer{
       </div>
       <div class="service-card reveal" style="transition-delay:0.08s">
         <div class="service-num">02</div>
-        <div class="service-icon">✨</div>
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></div>
         <div class="service-name">Motion Graphics</div>
         <p class="service-desc">Bringing ideas to life with stunning animations that communicate your message in a visually compelling way.</p>
         <div class="service-tags">
@@ -1001,7 +1002,7 @@ footer{
       </div>
       <div class="service-card reveal" style="transition-delay:0.16s">
         <div class="service-num">03</div>
-        <div class="service-icon">🎨</div>
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="3.5"/><path d="M2 20c0-4 3.6-7 8-7h1"/><path d="M18 14l-5 5"/><path d="M18 19l-5-5"/><circle cx="18" cy="19" r="3"/></svg></div>
         <div class="service-name">Graphic Design</div>
         <p class="service-desc">Eye-catching visuals that communicate your brand's story across every touchpoint — digital and print.</p>
         <div class="service-tags">
@@ -1014,7 +1015,7 @@ footer{
       </div>
       <div class="service-card reveal" style="transition-delay:0.0s">
         <div class="service-num">04</div>
-        <div class="service-icon">📱</div>
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/><path d="M9 7h6M9 11h4"/></svg></div>
         <div class="service-name">Social Media Management</div>
         <p class="service-desc">Strategic content that grows your following, builds community, and drives real business results.</p>
         <div class="service-tags">
@@ -1026,7 +1027,7 @@ footer{
       </div>
       <div class="service-card reveal" style="transition-delay:0.08s">
         <div class="service-num">05</div>
-        <div class="service-icon">📣</div>
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
         <div class="service-name">Paid Marketing</div>
         <p class="service-desc">Data-driven ad campaigns on Meta platforms that generate qualified leads and maximize your return on investment.</p>
         <div class="service-tags">
@@ -1038,7 +1039,7 @@ footer{
       </div>
       <div class="service-card reveal" style="transition-delay:0.16s">
         <div class="service-num">06</div>
-        <div class="service-icon">🌐</div>
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
         <div class="service-name">Web Development & SEO</div>
         <p class="service-desc">Beautiful, fast websites with strong SEO foundations that bring organic traffic and convert visitors into clients.</p>
         <div class="service-tags">
@@ -1069,30 +1070,24 @@ footer{
     </div>
     <div class="portfolio-grid" id="portfolio-grid">
 
-      <!-- VIDEO 1 — Cloudinary video (featured) -->
-      <div class="portfolio-item featured" data-cat="video" style="aspect-ratio:16/9;overflow:hidden;position:relative;">
-        <iframe src="https://player.cloudinary.com/embed/?cloud_name=de6lsypqj&public_id=Jrplooet_Final_1_8_2025_oyk3mo" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;border-radius:16px;"></iframe>
-        <div class="portfolio-overlay" style="pointer-events:none;opacity:0;">
-          <div class="portfolio-overlay-cat">Video Editing</div>
-          <div class="portfolio-overlay-title">Brand Campaign Video</div>
-        </div>
+      <!-- VIDEO 1 — Featured full-width -->
+      <div class="portfolio-item featured" data-cat="video" style="overflow:hidden;position:relative;">
+        <iframe src="https://player.cloudinary.com/embed/?cloud_name=de6lsypqj&public_id=Jrplooet_Final_1_8_2025_oyk3mo" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;"></iframe>
       </div>
 
-      <!-- VIDEO 2 — Cloudinary video -->
-      <div class="portfolio-item" data-cat="video" style="aspect-ratio:4/3;overflow:hidden;position:relative;">
-        <iframe src="https://player.cloudinary.com/embed/?cloud_name=de6lsypqj&public_id=Fire_Effect_Practice_25_4_2024_rr_pcambf" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;border-radius:16px;"></iframe>
+      <!-- VIDEO 2 -->
+      <div class="portfolio-item" data-cat="video" style="overflow:hidden;position:relative;">
+        <iframe src="https://player.cloudinary.com/embed/?cloud_name=de6lsypqj&public_id=Fire_Effect_Practice_25_4_2024_rr_pcambf" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;"></iframe>
       </div>
 
-      <!-- VIDEO 3 — Cloudinary video -->
-      <div class="portfolio-item" data-cat="motion" style="aspect-ratio:4/3;overflow:hidden;position:relative;">
-        <iframe src="https://player.cloudinary.com/embed/?cloud_name=de6lsypqj&public_id=VTAv4NdTHWi_576_jkmxpq" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;border-radius:16px;"></iframe>
+      <!-- VIDEO 3 -->
+      <div class="portfolio-item" data-cat="motion" style="overflow:hidden;position:relative;">
+        <iframe src="https://player.cloudinary.com/embed/?cloud_name=de6lsypqj&public_id=VTAv4NdTHWi_576_jkmxpq" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;"></iframe>
       </div>
 
       <!-- IMAGE 1 — Learn Quran -->
-      <div class="portfolio-item" data-cat="design">
-        <div class="portfolio-thumb">
-          <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778847532/Learn_quran_dwtqbf.jpg" alt="Learn Quran Design" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px;">
-        </div>
+      <div class="portfolio-item" data-cat="design" style="position:relative;overflow:hidden;">
+        <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778847532/Learn_quran_dwtqbf.jpg" alt="Learn Quran Design" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
         <div class="portfolio-overlay">
           <div class="portfolio-overlay-cat">Graphic Design</div>
           <div class="portfolio-overlay-title">Learn Quran — Social Content</div>
@@ -1101,10 +1096,8 @@ footer{
       </div>
 
       <!-- IMAGE 2 — Grid Camera -->
-      <div class="portfolio-item" data-cat="design">
-        <div class="portfolio-thumb">
-          <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778847529/Grid_Camera_fui8ko.jpg" alt="Grid Camera" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px;">
-        </div>
+      <div class="portfolio-item" data-cat="design" style="position:relative;overflow:hidden;">
+        <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778847529/Grid_Camera_fui8ko.jpg" alt="Grid Camera" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
         <div class="portfolio-overlay">
           <div class="portfolio-overlay-cat">Graphic Design</div>
           <div class="portfolio-overlay-title">Grid Camera — Branding</div>
@@ -1113,10 +1106,8 @@ footer{
       </div>
 
       <!-- IMAGE 3 — Damascus Knife Posts -->
-      <div class="portfolio-item" data-cat="social">
-        <div class="portfolio-thumb">
-          <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778847519/Damascus_Knife_Posts_jg0uot.jpg" alt="Damascus Knife Social Posts" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px;">
-        </div>
+      <div class="portfolio-item" data-cat="social" style="position:relative;overflow:hidden;">
+        <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778847519/Damascus_Knife_Posts_jg0uot.jpg" alt="Damascus Knife Social Posts" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
         <div class="portfolio-overlay">
           <div class="portfolio-overlay-cat">Social Media</div>
           <div class="portfolio-overlay-title">Damascus Knife — Social Posts</div>
@@ -1125,10 +1116,8 @@ footer{
       </div>
 
       <!-- IMAGE 4 — Damascus Knife Banners -->
-      <div class="portfolio-item" data-cat="design">
-        <div class="portfolio-thumb">
-          <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778847507/Damascus_Knife_Banners_rrvfws.jpg" alt="Damascus Knife Banners" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px;">
-        </div>
+      <div class="portfolio-item" data-cat="design" style="position:relative;overflow:hidden;">
+        <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778847507/Damascus_Knife_Banners_rrvfws.jpg" alt="Damascus Knife Banners" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
         <div class="portfolio-overlay">
           <div class="portfolio-overlay-cat">Graphic Design</div>
           <div class="portfolio-overlay-title">Damascus Knife — Banner Ads</div>
@@ -1137,10 +1126,8 @@ footer{
       </div>
 
       <!-- IMAGE 5 — Gym -->
-      <div class="portfolio-item" data-cat="social">
-        <div class="portfolio-thumb">
-          <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778847522/gym_small_size_pupiny.jpg" alt="Gym Social Content" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px;">
-        </div>
+      <div class="portfolio-item" data-cat="social" style="position:relative;overflow:hidden;">
+        <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778847522/gym_small_size_pupiny.jpg" alt="Gym Social Content" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
         <div class="portfolio-overlay">
           <div class="portfolio-overlay-cat">Social Media</div>
           <div class="portfolio-overlay-title">Gym Brand — Social Content</div>
@@ -1163,25 +1150,25 @@ footer{
     <div class="process-grid">
       <div class="process-step reveal" style="transition-delay:0.0s">
         <div class="process-num">01</div>
-        <div class="process-step-icon">💬</div>
+        <div class="process-step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
         <div class="process-step-name">Discovery Call</div>
         <p class="process-step-desc">We learn about your brand, goals, audience, and vision to craft the perfect strategy for you.</p>
       </div>
       <div class="process-step reveal" style="transition-delay:0.1s">
         <div class="process-num">02</div>
-        <div class="process-step-icon">📋</div>
+        <div class="process-step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
         <div class="process-step-name">Strategy & Planning</div>
         <p class="process-step-desc">We build a detailed creative roadmap — timelines, deliverables, and milestones all set in stone.</p>
       </div>
       <div class="process-step reveal" style="transition-delay:0.2s">
         <div class="process-num">03</div>
-        <div class="process-step-icon">🚀</div>
+        <div class="process-step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
         <div class="process-step-name">Creation</div>
         <p class="process-step-desc">Our expert team gets to work — designing, animating, editing with precision and creativity.</p>
       </div>
       <div class="process-step reveal" style="transition-delay:0.3s">
         <div class="process-num">04</div>
-        <div class="process-step-icon">✅</div>
+        <div class="process-step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div class="process-step-name">Review & Launch</div>
         <p class="process-step-desc">You review, we refine — until you're 100% happy. Then we launch and track performance together.</p>
       </div>
@@ -1227,28 +1214,28 @@ footer{
         <p class="section-subtitle">We don't just deliver work — we deliver results that matter. Here's why leading brands choose us.</p>
         <div class="why-list">
           <div class="why-item">
-            <div class="why-item-icon">⭐</div>
+            <div class="why-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></div>
             <div>
               <div class="why-item-title">Premium Quality, Every Time</div>
               <p class="why-item-desc">Every deliverable goes through a strict quality control process before it reaches you.</p>
             </div>
           </div>
           <div class="why-item">
-            <div class="why-item-icon">⚡</div>
+            <div class="why-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
             <div>
               <div class="why-item-title">Fast Turnaround</div>
               <p class="why-item-desc">We respect your deadlines. Our efficient workflow means you get great work, on time.</p>
             </div>
           </div>
           <div class="why-item">
-            <div class="why-item-icon">🔄</div>
+            <div class="why-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.54"/></svg></div>
             <div>
               <div class="why-item-title">Unlimited Revisions</div>
               <p class="why-item-desc">We work until you're 100% satisfied. Your vision is our mission.</p>
             </div>
           </div>
           <div class="why-item">
-            <div class="why-item-icon">📊</div>
+            <div class="why-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
             <div>
               <div class="why-item-title">Data-Driven Approach</div>
               <p class="why-item-desc">Every creative decision is backed by real analytics and platform insights.</p>
@@ -1381,40 +1368,40 @@ footer{
     <div class="contact-inner">
       <div class="reveal-left">
         <div class="contact-info-item">
-          <div class="contact-icon">📞</div>
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.71 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.07 6.07l1.09-.96a2 2 0 0 1 2.11-.45c.91.35 1.85.58 2.81.71a2 2 0 0 1 1.72 2.03z"/></svg></div>
           <div>
             <div class="contact-info-label">Phone / WhatsApp</div>
             <a href="https://wa.me/923121844483" class="contact-info-value" style="color:var(--blue)">+92 312 184 4483</a>
           </div>
         </div>
         <div class="contact-info-item">
-          <div class="contact-icon">✉️</div>
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div>
             <div class="contact-info-label">Email</div>
             <a href="mailto:rigelstudio1@gmail.com" class="contact-info-value" style="color:var(--blue)">rigelstudio1@gmail.com</a>
           </div>
         </div>
         <div class="contact-info-item">
-          <div class="contact-icon">📍</div>
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div>
             <div class="contact-info-label">Location</div>
             <div class="contact-info-value">Pakistan — Serving Clients Worldwide</div>
           </div>
         </div>
         <div class="contact-info-item">
-          <div class="contact-icon">🕐</div>
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
           <div>
             <div class="contact-info-label">Response Time</div>
             <div class="contact-info-value">Within 24 hours, Mon–Sat</div>
           </div>
         </div>
         <div class="contact-socials">
-          <a href="https://www.instagram.com/rigel_studio_/" target="_blank" class="social-link" title="Instagram">📸</a>
-          <a href="https://www.facebook.com/rigelstudio1/" target="_blank" class="social-link" title="Facebook">👤</a>
-          <a href="https://www.pinterest.com/rigelstudio1/" target="_blank" class="social-link" title="Pinterest">📌</a>
-          <a href="https://www.reddit.com/user/Original_Prior8015/" target="_blank" class="social-link" title="Reddit">💬</a>
-          <a href="https://twitter.com/RigelStudio1" target="_blank" class="social-link" title="X/Twitter">🐦</a>
-          <a href="https://www.linkedin.com/" target="_blank" class="social-link" title="LinkedIn">💼</a>
+          <a href="https://www.instagram.com/rigel_studio_/" target="_blank" class="social-link" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/rigelstudio1/" target="_blank" class="social-link" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.pinterest.com/rigelstudio1/" target="_blank" class="social-link" title="Pinterest"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.77 1.22-5.14 1.22-5.14s-.31-.62-.31-1.54c0-1.45.84-2.53 1.88-2.53.89 0 1.32.67 1.32 1.47 0 .89-.57 2.24-.86 3.48-.24 1.04.51 1.89 1.53 1.89 1.84 0 3.08-2.37 3.08-5.16 0-2.14-1.45-3.64-3.51-3.64-2.39 0-3.79 1.79-3.79 3.65 0 .72.28 1.5.62 1.92.07.08.08.16.06.24l-.23.95c-.04.14-.12.18-.28.11-1.04-.49-1.69-2.01-1.69-3.24 0-2.63 1.91-5.05 5.52-5.05 2.9 0 5.15 2.07 5.15 4.83 0 2.88-1.81 5.2-4.33 5.2-.85 0-1.64-.44-1.91-.96l-.52 1.94c-.19.72-.69 1.62-1.03 2.17.78.24 1.6.37 2.45.37 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg></a>
+          <a href="https://www.reddit.com/user/Original_Prior8015/" target="_blank" class="social-link" title="Reddit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16.5 12c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5"/><path d="M7.5 12c-.83 0-1.5.67-1.5 1.5S6.67 15 7.5 15"/><ellipse cx="12" cy="15" rx="3.5" ry="2"/><circle cx="8.5" cy="9" r="1.5"/><circle cx="15.5" cy="9" r="1.5"/><path d="M8.5 9C9.5 7.5 11 7 12 7s2.5.5 3.5 2"/></svg></a>
+          <a href="https://twitter.com/RigelStudio1" target="_blank" class="social-link" title="X/Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M4 20L20 4"/></svg></a>
+          <a href="https://www.linkedin.com/" target="_blank" class="social-link" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
         </div>
       </div>
       <div class="reveal-right">
@@ -1482,12 +1469,12 @@ footer{
         </div>
         <p class="footer-brand-desc">A creative marketing agency helping brands grow through high-quality design, video, and digital marketing.</p>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/rigel_studio_/" target="_blank" class="footer-social">📸</a>
-          <a href="https://www.facebook.com/rigelstudio1/" target="_blank" class="footer-social">👤</a>
-          <a href="https://www.pinterest.com/rigelstudio1/" target="_blank" class="footer-social">📌</a>
-          <a href="https://www.reddit.com/user/Original_Prior8015/" target="_blank" class="footer-social">💬</a>
-          <a href="https://twitter.com/RigelStudio1" target="_blank" class="footer-social">🐦</a>
-          <a href="https://www.linkedin.com/" target="_blank" class="footer-social">💼</a>
+          <a href="https://www.instagram.com/rigel_studio_/" target="_blank" class="footer-social" title="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/rigelstudio1/" target="_blank" class="footer-social" title="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.pinterest.com/rigelstudio1/" target="_blank" class="footer-social" title="Pinterest"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.77 1.22-5.14 1.22-5.14s-.31-.62-.31-1.54c0-1.45.84-2.53 1.88-2.53.89 0 1.32.67 1.32 1.47 0 .89-.57 2.24-.86 3.48-.24 1.04.51 1.89 1.53 1.89 1.84 0 3.08-2.37 3.08-5.16 0-2.14-1.45-3.64-3.51-3.64-2.39 0-3.79 1.79-3.79 3.65 0 .72.28 1.5.62 1.92.07.08.08.16.06.24l-.23.95c-.04.14-.12.18-.28.11-1.04-.49-1.69-2.01-1.69-3.24 0-2.63 1.91-5.05 5.52-5.05 2.9 0 5.15 2.07 5.15 4.83 0 2.88-1.81 5.2-4.33 5.2-.85 0-1.64-.44-1.91-.96l-.52 1.94c-.19.72-.69 1.62-1.03 2.17.78.24 1.6.37 2.45.37 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg></a>
+          <a href="https://www.reddit.com/user/Original_Prior8015/" target="_blank" class="footer-social" title="Reddit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.5 13.5c.5.5 2 1 3.5 1s3-.5 3.5-1"/><circle cx="8.5" cy="10" r="1.5"/><circle cx="15.5" cy="10" r="1.5"/></svg></a>
+          <a href="https://twitter.com/RigelStudio1" target="_blank" class="footer-social" title="X/Twitter"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M4 20L20 4"/></svg></a>
+          <a href="https://www.linkedin.com/" target="_blank" class="footer-social" title="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
         </div>
       </div>
       <div>

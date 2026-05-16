@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Rigel Studio | Marketing, Design & Video Editing Insights</title>
+<meta name="description" content="Expert insights on video editing, motion graphics, social media marketing, branding, SEO, and digital marketing from Rigel Studio — your creative agency partner.">
+<meta name="keywords" content="video editing tips, social media marketing, motion graphics, branding, SEO, digital marketing, Rigel Studio blog">
+<link rel="canonical" href="https://rigelstudio.com/blog.html">
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/de6lsypqj/image/upload/v1778850724/Rigel_Logo_Icon_putady.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0d1f;--bg2:#121228;--bg3:#16163a;
+  --blue:#73caff;--blue-dim:#4aaae8;--blue-glow:#73caff44;
+  --white:#ffffff;--gray:#a0a8c0;--gray-dim:#5a607a;
+  --border:rgba(115,202,255,0.12);--border2:rgba(115,202,255,0.25);
+  --font-head:'Montserrat',sans-serif;--font-body:'Poppins',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg2);color:var(--white);font-family:var(--font-body);line-height:1.7;overflow-x:hidden;}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+#stars-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.5;}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--blue-dim);border-radius:3px}
+
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:background 0.4s,padding 0.4s;}
+nav.scrolled{background:rgba(13,13,31,0.88);backdrop-filter:blur(20px);padding:12px 0;border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo img{height:44px;width:auto;object-fit:contain;display:block;}
+.nav-links{display:flex;align-items:center;gap:36px;}
+.nav-links a{font-size:13px;font-weight:500;color:var(--gray);letter-spacing:0.03em;transition:color 0.2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--blue);transform:scaleX(0);transition:transform 0.3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-cta{background:var(--blue);color:#060618!important;font-size:13px!important;font-weight:700!important;padding:10px 22px;border-radius:50px;transition:all 0.2s;}
+.nav-cta:hover{background:#a8dbff;transform:translateY(-1px)}
+.nav-cta::after{display:none!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:all 0.3s;}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(13,13,31,0.97);backdrop-filter:blur(20px);border-top:1px solid var(--border);padding:20px 24px;}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:14px 0;border-bottom:1px solid var(--border);width:100%}
+  .hamburger{display:flex}
+  .nav-cta{display:none}
+}
+
+/* HERO */
+.blog-hero{
+  position:relative;z-index:2;
+  padding:160px 0 80px;
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.blog-hero-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(115,202,255,0.06),transparent 60%);
+}
+.blog-hero-content{text-align:center;position:relative;z-index:2;}
+.blog-hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--border2);border-radius:50px;
+  padding:7px 18px;font-size:11px;font-weight:600;
+  color:var(--blue);letter-spacing:0.12em;text-transform:uppercase;
+  margin-bottom:24px;
+}
+.blog-hero h1{
+  font-family:var(--font-head);font-size:clamp(40px,6vw,72px);
+  font-weight:900;line-height:1.05;margin-bottom:20px;
+}
+.blog-hero h1 span{color:var(--blue)}
+.blog-hero-desc{font-size:17px;color:var(--gray);max-width:560px;margin:0 auto 48px;line-height:1.8;}
+
+/* SEARCH + FILTER */
+.blog-controls{
+  display:flex;align-items:center;justify-content:center;
+  gap:16px;flex-wrap:wrap;
+  position:relative;z-index:2;
+}
+.search-wrap{
+  position:relative;
+}
+.search-input{
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--border2);border-radius:50px;
+  padding:12px 20px 12px 44px;
+  font-size:14px;color:var(--white);
+  font-family:var(--font-body);
+  outline:none;width:300px;
+  transition:border-color 0.2s,background 0.2s;
+}
+.search-input::placeholder{color:var(--gray-dim)}
+.search-input:focus{border-color:var(--blue-dim);background:rgba(115,202,255,0.04);}
+.search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:16px;color:var(--gray-dim);}
+@media(max-width:500px){.search-input{width:100%}.search-wrap{width:100%}}
+
+/* CATEGORY TABS */
+.cat-tabs{
+  display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+  margin-bottom:64px;margin-top:32px;position:relative;z-index:2;
+}
+.cat-tab{
+  font-size:12px;font-weight:600;letter-spacing:0.06em;
+  padding:8px 20px;border-radius:50px;
+  border:1px solid var(--border2);color:var(--gray);
+  cursor:pointer;transition:all 0.2s;background:transparent;
+}
+.cat-tab:hover,.cat-tab.active{background:var(--blue);color:#060618;border-color:var(--blue);}
+
+/* FEATURED POST */
+.featured-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:24px;
+}
+.featured-label::before{content:'';display:block;width:20px;height:1px;background:var(--blue);}
+.featured-post{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  border:1px solid var(--border2);border-radius:24px;
+  overflow:hidden;margin-bottom:80px;
+  background:rgba(115,202,255,0.02);
+  transition:border-color 0.3s,transform 0.3s;
+}
+.featured-post:hover{border-color:rgba(115,202,255,0.4);transform:translateY(-4px);}
+@media(max-width:768px){.featured-post{grid-template-columns:1fr}}
+.featured-thumb{
+  min-height:340px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.featured-thumb-bg{
+  position:absolute;inset:0;
+}
+.featured-thumb-icon{font-size:64px;position:relative;z-index:1;}
+.featured-cat-badge{
+  position:absolute;top:20px;left:20px;z-index:2;
+  background:var(--blue);color:#060618;
+  font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:5px 14px;border-radius:50px;
+}
+.featured-body{padding:48px 44px;display:flex;flex-direction:column;justify-content:center;}
+@media(max-width:500px){.featured-body{padding:28px 24px}}
+.featured-meta{display:flex;align-items:center;gap:16px;margin-bottom:16px;flex-wrap:wrap;}
+.featured-date{font-size:12px;color:var(--gray-dim);}
+.featured-read{font-size:12px;color:var(--gray-dim);}
+.featured-dot{width:3px;height:3px;border-radius:50%;background:var(--gray-dim);}
+.featured-title{
+  font-family:var(--font-head);font-size:clamp(22px,2.5vw,32px);
+  font-weight:800;line-height:1.2;margin-bottom:16px;color:var(--white);
+  transition:color 0.2s;
+}
+.featured-post:hover .featured-title{color:var(--blue)}
+.featured-excerpt{font-size:15px;color:var(--gray);line-height:1.8;margin-bottom:28px;}
+.read-more{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:700;color:var(--blue);
+  letter-spacing:0.04em;transition:gap 0.2s;
+}
+.read-more:hover{gap:14px}
+
+/* POSTS GRID */
+.posts-section-title{
+  font-family:var(--font-head);font-size:20px;font-weight:700;
+  color:var(--white);margin-bottom:32px;
+  display:flex;align-items:center;gap:12px;
+}
+.posts-section-title::after{content:'';flex:1;height:1px;background:var(--border);}
+.posts-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  margin-bottom:64px;
+}
+@media(max-width:900px){.posts-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){.posts-grid{grid-template-columns:1fr}}
+.post-card{
+  background:rgba(255,255,255,0.02);
+  border:1px solid var(--border);border-radius:20px;
+  overflow:hidden;
+  transition:border-color 0.3s,transform 0.3s;
+  display:flex;flex-direction:column;
+}
+.post-card:hover{border-color:var(--border2);transform:translateY(-6px);}
+.post-card::before{
+  content:'';display:block;height:1px;
+  background:linear-gradient(to right,transparent,var(--blue),transparent);
+  opacity:0;transition:opacity 0.3s;
+}
+.post-card:hover::before{opacity:1}
+.post-thumb{
+  height:200px;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.post-thumb-icon{font-size:44px;position:relative;z-index:1;}
+.post-cat{
+  position:absolute;top:14px;left:14px;
+  font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--blue);border:1px solid rgba(115,202,255,0.3);
+  background:rgba(13,13,31,0.8);
+  padding:4px 12px;border-radius:50px;
+  backdrop-filter:blur(8px);
+}
+.post-body{padding:24px;flex:1;display:flex;flex-direction:column;}
+.post-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+.post-date,.post-read{font-size:11px;color:var(--gray-dim);}
+.post-dot{width:3px;height:3px;border-radius:50%;background:var(--gray-dim);}
+.post-title{
+  font-family:var(--font-head);font-size:17px;font-weight:700;
+  line-height:1.3;margin-bottom:12px;color:var(--white);
+  flex:1;transition:color 0.2s;
+}
+.post-card:hover .post-title{color:var(--blue)}
+.post-excerpt{font-size:13px;color:var(--gray);line-height:1.7;margin-bottom:20px;}
+.post-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:16px;border-top:1px solid var(--border);
+}
+.post-author{display:flex;align-items:center;gap:10px;}
+.post-avatar{
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(115,202,255,0.15);
+  border:1px solid rgba(115,202,255,0.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;color:var(--blue);flex-shrink:0;
+}
+.post-author-name{font-size:11px;color:var(--gray-dim);font-weight:500;}
+.post-arrow{font-size:16px;color:var(--blue);transition:transform 0.2s;}
+.post-card:hover .post-arrow{transform:translateX(4px)}
+
+/* NEWSLETTER */
+.newsletter-box{
+  background:rgba(115,202,255,0.04);
+  border:1px solid var(--border2);border-radius:24px;
+  padding:60px 48px;
+  text-align:center;margin:80px 0;
+  position:relative;overflow:hidden;
+}
+@media(max-width:600px){.newsletter-box{padding:40px 24px}}
+.newsletter-ring{
+  position:absolute;width:400px;height:400px;border-radius:50%;
+  border:1px solid rgba(115,202,255,0.06);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+.newsletter-title{
+  font-family:var(--font-head);font-size:clamp(22px,3vw,36px);
+  font-weight:800;margin-bottom:12px;position:relative;z-index:2;
+}
+.newsletter-title span{color:var(--blue)}
+.newsletter-desc{font-size:15px;color:var(--gray);margin:0 auto 32px;max-width:420px;line-height:1.7;position:relative;z-index:2;}
+.newsletter-form{
+  display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+  position:relative;z-index:2;
+}
+.newsletter-input{
+  background:rgba(255,255,255,0.04);border:1px solid var(--border2);
+  border-radius:50px;padding:13px 22px;
+  font-size:14px;color:var(--white);font-family:var(--font-body);
+  outline:none;width:300px;transition:border-color 0.2s;
+}
+.newsletter-input::placeholder{color:var(--gray-dim)}
+.newsletter-input:focus{border-color:var(--blue-dim)}
+.newsletter-btn{
+  background:var(--blue);color:#060618;
+  font-family:var(--font-head);font-size:14px;font-weight:700;
+  padding:13px 28px;border-radius:50px;
+  transition:all 0.2s;white-space:nowrap;
+}
+.newsletter-btn:hover{background:#a8dbff;transform:translateY(-2px)}
+@media(max-width:500px){.newsletter-input{width:100%}.newsletter-btn{width:100%;justify-content:center}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s,transform 0.7s;}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* PAGINATION */
+.pagination{display:flex;gap:8px;justify-content:center;margin-bottom:40px;}
+.page-btn{
+  width:40px;height:40px;border-radius:10px;
+  border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:600;color:var(--gray);
+  cursor:pointer;transition:all 0.2s;background:transparent;
+}
+.page-btn:hover,.page-btn.active{background:var(--blue);color:#060618;border-color:var(--blue);}
+
+/* TAGS SIDEBAR / TOPICS */
+.topics-row{
+  display:flex;gap:10px;flex-wrap:wrap;margin-bottom:60px;
+}
+.topic-pill{
+  font-size:12px;font-weight:600;padding:7px 18px;border-radius:50px;
+  border:1px solid var(--border);color:var(--gray);
+  background:rgba(255,255,255,0.02);
+  cursor:pointer;transition:all 0.2s;
+}
+.topic-pill:hover{border-color:var(--blue-dim);color:var(--blue)}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32px;position:relative;z-index:2;}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+@media(max-width:900px){.footer-inner{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:500px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand-name{font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--white);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.footer-brand-name span{color:var(--blue)}
+.footer-brand-desc{font-size:13px;color:var(--gray);line-height:1.7;max-width:260px;margin-bottom:20px}
+.footer-socials{display:flex;gap:10px;flex-wrap:wrap}
+.footer-social{width:36px;height:36px;border-radius:8px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--gray);transition:all 0.2s;}
+.footer-social:hover{border-color:var(--blue);color:var(--blue)}
+.footer-col-title{font-family:var(--font-head);font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);margin-bottom:20px;}
+.footer-links{display:flex;flex-direction:column;gap:12px}
+.footer-links a{font-size:13px;color:var(--gray);transition:color 0.2s;}
+.footer-links a:hover{color:var(--blue)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-copy{font-size:12px;color:var(--gray-dim)}
+.footer-copy span{color:var(--blue)}
+.footer-legal{display:flex;gap:24px}
+.footer-legal a{font-size:12px;color:var(--gray-dim);transition:color 0.2s}
+.footer-legal a:hover{color:var(--blue)}
+
+#back-top{position:fixed;bottom:32px;right:32px;z-index:200;width:44px;height:44px;border-radius:50%;background:var(--blue);color:#060618;font-size:18px;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:all 0.3s;pointer-events:none;box-shadow:0 4px 20px rgba(115,202,255,0.35);}
+#back-top.visible{opacity:1;transform:translateY(0);pointer-events:all}
+
+/* no-results */
+.no-results{text-align:center;padding:60px;color:var(--gray);font-size:15px;display:none;}
+</style>
+</head>
+<body>
+
+<canvas id="stars-canvas"></canvas>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778851026/Rigel_Logo_white.2_duloum.png" alt="Rigel Studio" style="height:44px;width:auto;object-fit:contain;display:block;">
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#portfolio">Portfolio</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#about">About</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="index.html#contact" class="nav-cta">Get a Quote</a>
+    </div>
+    <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- BLOG HERO -->
+<section class="blog-hero">
+  <div class="blog-hero-bg"></div>
+  <div class="container">
+    <div class="blog-hero-content">
+      <div class="blog-hero-badge">✦ Knowledge Hub</div>
+      <h1>The Rigel <span>Studio</span> Blog</h1>
+      <p class="blog-hero-desc">Expert insights on video editing, motion graphics, social media marketing, branding, and growing your business in the digital age.</p>
+      <div class="blog-controls">
+        <div class="search-wrap">
+          <span class="search-icon">🔍</span>
+          <input class="search-input" type="text" placeholder="Search articles..." id="search-input" oninput="filterPosts()">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<main style="position:relative;z-index:2;padding:80px 0 40px;">
+  <div class="container">
+
+    <!-- CATEGORY TABS -->
+    <div class="cat-tabs" id="cat-tabs">
+      <button class="cat-tab active" onclick="setCategory(this,'all')">All Posts</button>
+      <button class="cat-tab" onclick="setCategory(this,'video')">Video Editing</button>
+      <button class="cat-tab" onclick="setCategory(this,'motion')">Motion Graphics</button>
+      <button class="cat-tab" onclick="setCategory(this,'social')">Social Media</button>
+      <button class="cat-tab" onclick="setCategory(this,'branding')">Branding</button>
+      <button class="cat-tab" onclick="setCategory(this,'seo')">SEO</button>
+      <button class="cat-tab" onclick="setCategory(this,'marketing')">Marketing</button>
+    </div>
+
+    <!-- FEATURED POST -->
+    <div class="reveal" id="featured-wrap">
+      <div class="featured-label">Featured Article</div>
+      <a href="blog-post.html" class="featured-post" data-cat="video">
+        <div class="featured-thumb">
+          <div class="featured-thumb-bg" style="background:linear-gradient(135deg,rgba(115,202,255,0.12),rgba(20,20,60,0.95))"></div>
+          <div class="featured-cat-badge">Video Editing</div>
+          <div class="featured-thumb-icon">🎬</div>
+        </div>
+        <div class="featured-body">
+          <div class="featured-meta">
+            <span class="featured-date">May 10, 2025</span>
+            <span class="featured-dot"></span>
+            <span class="featured-read">8 min read</span>
+          </div>
+          <h2 class="featured-title">10 Video Editing Techniques That Will Make Your Reels Go Viral in 2025</h2>
+          <p class="featured-excerpt">From jump cuts and color grading to speed ramps and text animations — we break down the exact techniques top creators use to rack up millions of views on Instagram and TikTok reels.</p>
+          <span class="read-more">Read Full Article →</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- TRENDING TOPICS -->
+    <div class="reveal" style="margin-bottom:16px;">
+      <div class="posts-section-title">Trending Topics</div>
+      <div class="topics-row">
+        <span class="topic-pill" onclick="setSearchAndFilter('reels')">📱 Reels</span>
+        <span class="topic-pill" onclick="setSearchAndFilter('branding')">🎨 Branding</span>
+        <span class="topic-pill" onclick="setSearchAndFilter('SEO')">🔍 SEO</span>
+        <span class="topic-pill" onclick="setSearchAndFilter('motion')">✨ Motion Graphics</span>
+        <span class="topic-pill" onclick="setSearchAndFilter('YouTube')">▶️ YouTube</span>
+        <span class="topic-pill" onclick="setSearchAndFilter('ads')">📣 Paid Ads</span>
+        <span class="topic-pill" onclick="setSearchAndFilter('logo')">💎 Logo Design</span>
+        <span class="topic-pill" onclick="setSearchAndFilter('content')">📝 Content</span>
+      </div>
+    </div>
+
+    <!-- POSTS GRID -->
+    <div class="reveal">
+      <div class="posts-section-title">All Articles</div>
+    </div>
+    <div class="posts-grid" id="posts-grid">
+
+      <!-- POST 1 -->
+      <a href="blog-post.html" class="post-card reveal" data-cat="video" data-title="10 Video Editing Techniques That Will Make Your Reels Go Viral in 2025">
+        <div class="post-thumb" style="background:linear-gradient(135deg,rgba(115,202,255,0.12),rgba(13,13,31,0.9))">
+          <div class="post-cat">Video Editing</div>
+          <div class="post-thumb-icon">🎬</div>
+        </div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-date">May 10, 2025</span><span class="post-dot"></span><span class="post-read">8 min</span></div>
+          <div class="post-title">10 Video Editing Techniques That Will Make Your Reels Go Viral in 2025</div>
+          <p class="post-excerpt">Jump cuts, speed ramps, color grading — the exact techniques top creators use to rack up millions of views.</p>
+          <div class="post-footer">
+            <div class="post-author"><div class="post-avatar">RS</div><div class="post-author-name">Rigel Studio</div></div>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- POST 2 -->
+      <a href="blog-post-2.html" class="post-card reveal" data-cat="social" data-title="How to Build a Social Media Strategy That Actually Drives Sales">
+        <div class="post-thumb" style="background:linear-gradient(135deg,rgba(100,200,120,0.12),rgba(13,13,31,0.9))">
+          <div class="post-cat">Social Media</div>
+          <div class="post-thumb-icon">📱</div>
+        </div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-date">May 5, 2025</span><span class="post-dot"></span><span class="post-read">6 min</span></div>
+          <div class="post-title">How to Build a Social Media Strategy That Actually Drives Sales</div>
+          <p class="post-excerpt">Most brands post without a plan. Here's the exact framework we use with our clients to turn followers into paying customers.</p>
+          <div class="post-footer">
+            <div class="post-author"><div class="post-avatar">RS</div><div class="post-author-name">Rigel Studio</div></div>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- POST 3 -->
+      <a href="blog-post.html" class="post-card reveal" data-cat="motion" data-title="Motion Graphics 101: How Animation Transforms Your Brand Storytelling">
+        <div class="post-thumb" style="background:linear-gradient(135deg,rgba(150,100,255,0.12),rgba(13,13,31,0.9))">
+          <div class="post-cat">Motion Graphics</div>
+          <div class="post-thumb-icon">✨</div>
+        </div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-date">Apr 28, 2025</span><span class="post-dot"></span><span class="post-read">7 min</span></div>
+          <div class="post-title">Motion Graphics 101: How Animation Transforms Your Brand Storytelling</div>
+          <p class="post-excerpt">Static images are forgettable. Motion graphics make people stop scrolling. Here's why every brand needs them in 2025.</p>
+          <div class="post-footer">
+            <div class="post-author"><div class="post-avatar">RS</div><div class="post-author-name">Rigel Studio</div></div>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- POST 4 -->
+      <a href="blog-post.html" class="post-card reveal" data-cat="branding" data-title="Logo Design Mistakes That Are Hurting Your Brand (And How to Fix Them)">
+        <div class="post-thumb" style="background:linear-gradient(135deg,rgba(255,180,100,0.12),rgba(13,13,31,0.9))">
+          <div class="post-cat">Branding</div>
+          <div class="post-thumb-icon">💎</div>
+        </div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-date">Apr 20, 2025</span><span class="post-dot"></span><span class="post-read">5 min</span></div>
+          <div class="post-title">Logo Design Mistakes That Are Hurting Your Brand (And How to Fix Them)</div>
+          <p class="post-excerpt">Your logo is the face of your business. These 7 common mistakes could be silently destroying your credibility.</p>
+          <div class="post-footer">
+            <div class="post-author"><div class="post-avatar">RS</div><div class="post-author-name">Rigel Studio</div></div>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- POST 5 -->
+      <a href="blog-post.html" class="post-card reveal" data-cat="seo" data-title="SEO in 2025: What's Changed and How to Rank Your Business on Google">
+        <div class="post-thumb" style="background:linear-gradient(135deg,rgba(60,200,200,0.12),rgba(13,13,31,0.9))">
+          <div class="post-cat">SEO</div>
+          <div class="post-thumb-icon">🔍</div>
+        </div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-date">Apr 14, 2025</span><span class="post-dot"></span><span class="post-read">9 min</span></div>
+          <div class="post-title">SEO in 2025: What's Changed and How to Rank Your Business on Google</div>
+          <p class="post-excerpt">Google's algorithm has changed dramatically. Here's what still works, what doesn't, and how to dominate search results.</p>
+          <div class="post-footer">
+            <div class="post-author"><div class="post-avatar">RS</div><div class="post-author-name">Rigel Studio</div></div>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- POST 6 -->
+      <a href="blog-post.html" class="post-card reveal" data-cat="marketing" data-title="Meta Ads Mastery: How to Run Facebook & Instagram Ads That Convert">
+        <div class="post-thumb" style="background:linear-gradient(135deg,rgba(255,100,150,0.12),rgba(13,13,31,0.9))">
+          <div class="post-cat">Marketing</div>
+          <div class="post-thumb-icon">📣</div>
+        </div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-date">Apr 7, 2025</span><span class="post-dot"></span><span class="post-read">10 min</span></div>
+          <div class="post-title">Meta Ads Mastery: How to Run Facebook & Instagram Ads That Convert</div>
+          <p class="post-excerpt">Stop wasting money on ads that don't work. This step-by-step guide shows you exactly how to set up campaigns that bring real ROI.</p>
+          <div class="post-footer">
+            <div class="post-author"><div class="post-avatar">RS</div><div class="post-author-name">Rigel Studio</div></div>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- POST 7 -->
+      <a href="blog-post.html" class="post-card reveal" data-cat="video" data-title="YouTube Video Production: Complete Guide for Small Businesses in 2025">
+        <div class="post-thumb" style="background:linear-gradient(135deg,rgba(255,80,80,0.10),rgba(13,13,31,0.9))">
+          <div class="post-cat">Video Editing</div>
+          <div class="post-thumb-icon">▶️</div>
+        </div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-date">Mar 30, 2025</span><span class="post-dot"></span><span class="post-read">11 min</span></div>
+          <div class="post-title">YouTube Video Production: Complete Guide for Small Businesses in 2025</div>
+          <p class="post-excerpt">You don't need a big budget to create professional YouTube content. Here's the full workflow from scripting to publishing.</p>
+          <div class="post-footer">
+            <div class="post-author"><div class="post-avatar">RS</div><div class="post-author-name">Rigel Studio</div></div>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- POST 8 -->
+      <a href="blog-post.html" class="post-card reveal" data-cat="branding" data-title="Brand Identity vs Logo: Understanding the Difference (And Why It Matters)">
+        <div class="post-thumb" style="background:linear-gradient(135deg,rgba(115,202,255,0.10),rgba(13,13,31,0.9))">
+          <div class="post-cat">Branding</div>
+          <div class="post-thumb-icon">🎨</div>
+        </div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-date">Mar 22, 2025</span><span class="post-dot"></span><span class="post-read">6 min</span></div>
+          <div class="post-title">Brand Identity vs Logo: Understanding the Difference (And Why It Matters)</div>
+          <p class="post-excerpt">A logo is just one piece of your brand puzzle. Discover what a complete brand identity includes and how it builds trust.</p>
+          <div class="post-footer">
+            <div class="post-author"><div class="post-avatar">RS</div><div class="post-author-name">Rigel Studio</div></div>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- POST 9 -->
+      <a href="blog-post.html" class="post-card reveal" data-cat="seo" data-title="Content Writing for SEO: How to Write Blogs That Actually Rank">
+        <div class="post-thumb" style="background:linear-gradient(135deg,rgba(200,230,100,0.10),rgba(13,13,31,0.9))">
+          <div class="post-cat">SEO</div>
+          <div class="post-thumb-icon">📝</div>
+        </div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-date">Mar 15, 2025</span><span class="post-dot"></span><span class="post-read">8 min</span></div>
+          <div class="post-title">Content Writing for SEO: How to Write Blogs That Actually Rank on Google</div>
+          <p class="post-excerpt">Writing great content isn't enough. Learn the SEO-optimized structure, keyword strategy and internal linking that gets you to page 1.</p>
+          <div class="post-footer">
+            <div class="post-author"><div class="post-avatar">RS</div><div class="post-author-name">Rigel Studio</div></div>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="no-results" id="no-results">No articles found. Try a different search or category.</div>
+
+    <!-- PAGINATION -->
+    <div class="pagination reveal">
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">→</button>
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div class="newsletter-box reveal">
+      <div class="newsletter-ring"></div>
+      <h2 class="newsletter-title">Get <span>Free Marketing Tips</span><br>Every Week</h2>
+      <p class="newsletter-desc">Join 500+ business owners getting actionable insights on design, video, and digital marketing — straight to their inbox.</p>
+      <div class="newsletter-form">
+        <input class="newsletter-input" type="email" placeholder="Enter your email address">
+        <button class="newsletter-btn" onclick="subscribeNewsletter()">Subscribe Free ✦</button>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">
+          <img src="https://res.cloudinary.com/de6lsypqj/image/upload/v1778851026/Rigel_Logo_white.2_duloum.png" alt="Rigel Studio" style="height:36px;width:auto;">
+        </div>
+        <p class="footer-brand-desc">A creative marketing agency helping brands grow through high-quality design, video, and digital marketing.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/rigel_studio_/" target="_blank" class="footer-social">📸</a>
+          <a href="https://www.facebook.com/rigelstudio1/" target="_blank" class="footer-social">👤</a>
+          <a href="https://www.pinterest.com/rigelstudio1/" target="_blank" class="footer-social">📌</a>
+          <a href="https://twitter.com/RigelStudio1" target="_blank" class="footer-social">🐦</a>
+          <a href="https://www.linkedin.com/" target="_blank" class="footer-social">💼</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <a href="index.html#services">Video Editing</a>
+          <a href="index.html#services">Motion Graphics</a>
+          <a href="index.html#services">Graphic Design</a>
+          <a href="index.html#services">Social Media</a>
+          <a href="index.html#services">Paid Marketing</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Blog Topics</div>
+        <div class="footer-links">
+          <a href="#" onclick="setCategory(null,'video')">Video Editing</a>
+          <a href="#" onclick="setCategory(null,'social')">Social Media</a>
+          <a href="#" onclick="setCategory(null,'branding')">Branding</a>
+          <a href="#" onclick="setCategory(null,'seo')">SEO</a>
+          <a href="#" onclick="setCategory(null,'marketing')">Marketing</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-links">
+          <a href="https://wa.me/923121844483">WhatsApp Us</a>
+          <a href="mailto:rigelstudio1@gmail.com">rigelstudio1@gmail.com</a>
+          <a href="index.html#contact">Free Consultation</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 <span>Rigel Studio</span>. All rights reserved.</div>
+      <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    </div>
+  </div>
+</footer>
+
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* STARS */
+(function(){
+  const c=document.getElementById('stars-canvas');
+  const ctx=c.getContext('2d');
+  let W,H,stars=[];
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight}
+  function init(){resize();stars=[];for(let i=0;i<180;i++){stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.4+0.2,twinkle:Math.random()*Math.PI*2,speed:Math.random()*0.003+0.001});}}
+  function draw(){ctx.clearRect(0,0,W,H);stars.forEach(s=>{s.twinkle+=s.speed;const a=0.15+0.5*(Math.sin(s.twinkle)*0.5+0.5);ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(115,202,255,${a})`;ctx.fill();});requestAnimationFrame(draw);}
+  window.addEventListener('resize',init);init();draw();
+})();
+
+/* NAV */
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+  document.getElementById('back-top').classList.toggle('visible',window.scrollY>400);
+});
+function toggleNav(){document.getElementById('nav-links').classList.toggle('open');}
+
+/* REVEAL */
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* CATEGORY + SEARCH FILTER */
+let currentCat='all';
+function setCategory(btn,cat){
+  currentCat=cat;
+  document.querySelectorAll('.cat-tab').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  filterPosts();
+  window.scrollTo({top:400,behavior:'smooth'});
+}
+function setSearchAndFilter(term){
+  document.getElementById('search-input').value=term;
+  filterPosts();
+  window.scrollTo({top:400,behavior:'smooth'});
+}
+function filterPosts(){
+  const q=document.getElementById('search-input').value.toLowerCase();
+  let visible=0;
+  document.querySelectorAll('#posts-grid .post-card').forEach(card=>{
+    const cat=card.dataset.cat||'';
+    const title=(card.dataset.title||'').toLowerCase();
+    const excerpt=card.querySelector('.post-excerpt')?.textContent.toLowerCase()||'';
+    const catMatch=currentCat==='all'||cat===currentCat;
+    const searchMatch=!q||title.includes(q)||excerpt.includes(q)||cat.includes(q);
+    const show=catMatch&&searchMatch;
+    card.style.display=show?'flex':'none';
+    if(show)visible++;
+  });
+  // featured
+  const feat=document.getElementById('featured-wrap');
+  if(feat){
+    const featCat=feat.querySelector('.featured-post')?.dataset.cat||'all';
+    const show=currentCat==='all'||featCat===currentCat;
+    feat.style.display=!q&&show?'block':'none';
+  }
+  document.getElementById('no-results').style.display=visible===0?'block':'none';
+}
+
+/* NEWSLETTER */
+function subscribeNewsletter(){
+  const input=document.querySelector('.newsletter-input');
+  if(!input.value||!input.value.includes('@')){
+    input.style.borderColor='#f87171';setTimeout(()=>input.style.borderColor='',2000);return;
+  }
+  input.value='';
+  alert('✦ Thank you for subscribing! Great content is coming your way.');
+}
+
+/* PAGINATION BUTTONS */
+document.querySelectorAll('.page-btn').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.page-btn').forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
